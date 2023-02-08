@@ -18,4 +18,4 @@
       --content TEXT                  工作内容，必填项
       --help                          Show this message and exit. 
     ```
-3. 命令行示例：`python fill_work_time.py --username=xuxingan --content=供应商管理开发（100%）`
+3. 命令行示例：`python fill_work_time.py --username=test --content=供应商管理开发（100%）`
