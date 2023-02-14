@@ -5,8 +5,6 @@
 1. 安装依赖`pip install -r requirements.txt`
 2. `python fill_work_time.py --help`查看帮助文档
     ```bash 
-   Usage: fill_work_time.py [OPTIONS]
-   
    Options:
      --username TEXT                 用户名，必填项
      --password TEXT                 密码（默认为Hello1234）
@@ -15,7 +13,7 @@
      --time_spend_in_seconds INTEGER
                                      工时（单位【秒】，默认为8小时）
      --issue_name TEXT               问题（默认业务工作台-23年优化需求）
-     --content TEXT                  工作内容，必填项
+     --content TEXT                  工作内容，必填项(支持多条记录，用【1.2.3.】分开，最多支持三条工作内容)
      --template TEXT                 是否生成TDL模板（0：不生成，1：生成）
      --help                          Show this message and exit.
     ```
