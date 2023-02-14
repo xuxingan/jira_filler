@@ -36,7 +36,7 @@ def get_issue_id(jira, issue_name):
 @click.option('--started', default=started, help='填写时间（默认为当天日期，格式【2023-01-01】）')
 @click.option('--time_spend_in_seconds', default=time_spend_in_seconds, help='工时（单位【秒】，默认为8小时）')
 @click.option('--issue_name', default="业务工作台-23年优化需求", help='问题（默认业务工作台-23年优化需求）')
-@click.option('--content', default="市场工作台开发", help='工作内容，必填项')
+@click.option('--content', default="市场工作台开发", help='工作内容，必填项(支持多条记录，用【1.2.3.】分开，最多支持三条工作内容)')
 @click.option('--template', default="0", help='是否生成TDL模板（0：不生成，1：生成）')
 def fill_tempo(username, password, url, started, time_spend_in_seconds, issue_name, content, template):
     jira = Jira(
