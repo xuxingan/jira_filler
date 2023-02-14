@@ -1,4 +1,5 @@
 import os
+import re
 
 from xlsxtpl.writerx import BookWriter
 
@@ -10,7 +11,21 @@ def gen_tdl(name, date, content):
     writer.jinja_env.globals.update(dir=dir, getattr=getattr)
 
     payloads = []
-    lo_info = {'name': name, 'date': date, 'content': content}
+    content1 = ''
+    content2 = ''
+    content3 = ''
+    matches = re.findall(r"\d+\..*?(?=\d+\.|$)", content)
+    if len(matches) == 3:
+        content1 = matches[0]
+        content2 = matches[1]
+        content3 = matches[2]
+    elif len(matches) == 2:
+        content1 = matches[0]
+        content2 = matches[1]
+    else:
+        content1 = matches[0]
+    lo_info = {'name': name, 'date': date, 'content1': content1, 'content2': content2, 'content3': content3}
+
     payloads.append(lo_info)
     writer.render_book(payloads=payloads)
     file_name = os.path.join(path, f'{date}.xlsx')
