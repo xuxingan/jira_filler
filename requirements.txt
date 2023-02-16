@@ -21,3 +21,4 @@ xltpl==0.17
 xlwt==1.3.0
 
 openai~=0.26.5
+pywebio~=1.7.1

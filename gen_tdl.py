@@ -4,7 +4,7 @@ import re
 from xlsxtpl.writerx import BookWriter
 
 
-def gen_tdl(name, date, content):
+def gen_tdl(username, name, date, content):
     path = os.path.dirname(__file__) + '/tdl/'
     file_name = os.path.join(path, 'tdl.xlsx')
     writer = BookWriter(file_name)
@@ -28,7 +28,7 @@ def gen_tdl(name, date, content):
 
     payloads.append(lo_info)
     writer.render_book(payloads=payloads)
-    file_name = os.path.join(path, f'{date}.xlsx')
+    file_name = os.path.join(path, f'{username}_{date}.xlsx')
     writer.save(file_name)
     print(f"TDL文件生成完毕，文件位置{file_name}")
 
