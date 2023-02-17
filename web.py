@@ -43,6 +43,7 @@ def main():
 
     put_markdown(f"""
     ### 模板生成完毕
+    工作台TDL[填报地址](https://docs.qq.com/sheet/DTFhTZEFWWFJzcFNq)
     """)
 
     c = open(os.path.join(path, f'{username}_{date}.xlsx'), 'rb').read()
