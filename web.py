@@ -13,14 +13,15 @@ password = 'Hello1234'
 url = 'http://work.agilestar.cn'
 started = time.strftime("%Y-%m-%d", time.localtime())
 time_spend_in_seconds = 8 * 60 * 60
-global issue_name
-issue_name = '业务工作台-23年优化需求'
 template = "1"
 path = os.path.dirname(__file__) + '/tdl/'
 date = time.strftime('%-m{}%-d{}', time.strptime(started, "%Y-%m-%d")).format("月", "日")
 
 
 def main():
+    global issue_name
+    issue_name = '业务工作台-23年优化需求'
+
     put_markdown("""# Jira填报
 
     [`Jira`](http://work.agilestar.cn/secure/Dashboard.jspa)填报用于填写Jira的Tempo插件中的每日工作日志，并生成TDL模板用于回填`工作台TDL`腾讯在线文档。
@@ -38,16 +39,17 @@ def main():
     ])
     username = info['username']
     issue_name_param: object = info['issue_name']
+    content = ''
     content1 = info['content1']
     content2 = info['content2']
     content3 = info['content3']
 
     if content1 != '':
-        content = '1.' + content1
+        content += '1.' + content1
     if content2 != '':
-        content = '2.' + content2
+        content += '2.' + content2
     if content3 != '':
-        content = '3.' + content3
+        content += '3.' + content3
     if issue_name_param != '':
         issue_name = issue_name_param
     
