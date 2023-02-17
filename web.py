@@ -13,6 +13,7 @@ password = 'Hello1234'
 url = 'http://work.agilestar.cn'
 started = time.strftime("%Y-%m-%d", time.localtime())
 time_spend_in_seconds = 8 * 60 * 60
+global issue_name
 issue_name = '业务工作台-23年优化需求'
 template = "1"
 path = os.path.dirname(__file__) + '/tdl/'
