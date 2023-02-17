@@ -30,22 +30,32 @@ def main():
 
     info = input_group('今日的工作重点：', [
         input("用户名", name="username", type=TEXT),
+        input("项目名称", name="issue_name", type=TEXT,placeholder='可为空，默认为【业务工作台-23年优化需求】'),
         input("任务1.", name="content1", type=TEXT),
         input("任务2.", name="content2", type=TEXT),
         input("任务3.", name="content3", type=TEXT),
     ])
     username = info['username']
+    issue_name_param: object = info['issue_name']
     content1 = info['content1']
     content2 = info['content2']
     content3 = info['content3']
-    content = f'1.{content1}2.{content2}3.{content3}'
+
+    if content1 != '':
+        content = '1.' + content1
+    if content2 != '':
+        content = '2.' + content2
+    if content3 != '':
+        content = '3.' + content3
+    if issue_name_param != '':
+        issue_name = issue_name_param
+    
     fill_tempo_inner(username, password, url, started, time_spend_in_seconds, issue_name, content, template)
 
     put_markdown(f"""
     ### 模板生成完毕
-    工作台TDL[填报地址](https://docs.qq.com/sheet/DTFhTZEFWWFJzcFNq)
     """)
-
+    put_html('<a href="https://docs.qq.com/sheet/DTFhTZEFWWFJzcFNq" target="_blank">工作台TDL填报地址</a>')
     c = open(os.path.join(path, f'{username}_{date}.xlsx'), 'rb').read()
     put_file(f'{username}_{date}.xlsx', c, f'{username}_{date}.xlsx')
 

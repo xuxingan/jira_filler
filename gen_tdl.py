@@ -15,15 +15,18 @@ def gen_tdl(username, name, date, content):
     content2 = ''
     content3 = ''
     matches = re.findall(r"\d+\..*?(?=\d+\.|$)", content)
+
+    pattern = r"\d+\."
+
     if len(matches) == 3:
-        content1 = matches[0]
-        content2 = matches[1]
-        content3 = matches[2]
+        content1 = re.sub(pattern, "", matches[0])
+        content2 = re.sub(pattern, "", matches[1])
+        content3 = re.sub(pattern, "", matches[2])
     elif len(matches) == 2:
-        content1 = matches[0]
-        content2 = matches[1]
+        content1 = re.sub(pattern, "", matches[0])
+        content2 = re.sub(pattern, "", matches[1])
     else:
-        content1 = matches[0]
+        content1 = re.sub(pattern, "", matches[0])
     lo_info = {'name': name, 'date': date, 'content1': content1, 'content2': content2, 'content3': content3}
 
     payloads.append(lo_info)
