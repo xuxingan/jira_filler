@@ -8,7 +8,7 @@ from pywebio.output import *
 
 from fill_work_time import fill_tempo_inner
 
-pywebio.config(title='Jira填报', theme='sketchy')
+pywebio.config(title='Jira填报', theme='minty')
 password = 'Hello1234'
 url = 'http://work.agilestar.cn'
 started = time.strftime("%Y-%m-%d", time.localtime())
@@ -32,7 +32,7 @@ def main():
 
     info = input_group('今日的工作重点：', [
         input("用户名", name="username", type=TEXT),
-        input("项目名称", name="issue_name", type=TEXT,placeholder='可为空，默认为【业务工作台-23年优化需求】'),
+        input("项目名称", name="issue_name", type=TEXT, placeholder='可为空，默认为【业务工作台-23年优化需求】'),
         input("任务1.", name="content1", type=TEXT),
         input("任务2.", name="content2", type=TEXT),
         input("任务3.", name="content3", type=TEXT),
@@ -52,7 +52,9 @@ def main():
         content += '3.' + content3
     if issue_name_param != '':
         issue_name = issue_name_param
-    
+    put_markdown(f"""
+      #### 由于调用了OpenAI接口，速度很慢，公共key限制使用次数，不要轻易刷新，模板数据生成中。。。
+      """)
     fill_tempo_inner(username, password, url, started, time_spend_in_seconds, issue_name, content, template)
 
     put_markdown(f"""
