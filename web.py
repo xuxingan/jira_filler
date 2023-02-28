@@ -25,7 +25,7 @@ def main():
     put_markdown("""# Jira填报
 
     [`Jira`](http://work.agilestar.cn/secure/Dashboard.jspa)填报用于填写Jira的Tempo插件中的每日工作日志，并生成TDL模板用于回填`工作台TDL`腾讯在线文档。
-    基于ChatGPT-3模型的`每日总结`生成功能预计下版本支持。
+    基于ChatGPT-3模型生成`每日总结`，预测`明日工作内容`。
 
     本程序的源代码[链接](https://github.com/xuxingan/jira_filler)
     """)

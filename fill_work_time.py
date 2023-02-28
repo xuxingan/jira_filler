@@ -62,8 +62,10 @@ def fill_tempo_inner(username, password, url, started, time_spend_in_seconds, is
         password=password)
     worker = get_jira_worker(jira, username)
     issue_id = int(get_issue_id(jira, issue_name))
-
-    res = jira.tempo_timesheets_write_worklog(worker, started, time_spend_in_seconds, issue_id, content)
+    try:
+        res = jira.tempo_timesheets_write_worklog(worker, started, time_spend_in_seconds, issue_id, content)
+    except Exception as e:
+        res = e
     print(f"填报完毕，填报放回报文：{res}")
     if template == "1":
         name = get_jira_username(jira, username)
