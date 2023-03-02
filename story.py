@@ -45,7 +45,6 @@ def story():
     基于GPT-3模型生成企业文化小故事
     本程序的源代码[链接](https://github.com/xuxingan/jira_filler)
     """)
-
     info = input_group('故事信息填写：', [
         input("主人公", name="uname", type=TEXT),
         input("部门", name="dept", type=TEXT),
@@ -67,7 +66,7 @@ def story():
     put_markdown(f"""
     ### 故事生成完毕
     """)
-    put_markdown(f"> {story}")
+    put_markdown(f" {story}")
 
 
 if __name__ == '__main__':
