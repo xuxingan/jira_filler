@@ -45,6 +45,8 @@ def story():
     基于GPT-3模型生成企业文化小故事
     本程序的源代码[链接](https://github.com/xuxingan/jira_filler)
     """)
+    img = open('story/andersen.jpg', 'rb').read()
+    put_image(img, width='30%')
     info = input_group('故事信息填写：', [
         input("主人公", name="uname", type=TEXT),
         input("部门", name="dept", type=TEXT),
