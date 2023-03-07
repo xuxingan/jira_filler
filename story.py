@@ -15,18 +15,12 @@ def read_json():
 
 def gpt(title):
     openai.api_key = ''
-    # 文本类
-    response = openai.Completion.create(
-        model='text-davinci-003',
-        prompt=title,
-        temperature=0.7,
-        top_p=1.0,
-        max_tokens=512,
-        frequency_penalty=0.0,
-        presence_penalty=0.0,
-        n=1
+    completion = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": title}]
     )
-    text1 = response.choices[0].text
+
+    text1 = completion["choices"][0]["message"]["content"]
     print(text1)
     return text1
 
