@@ -9,17 +9,17 @@ from pywebio.output import *
 from fill_work_time import fill_tempo_inner
 
 pywebio.config(title='Jira填报', theme='minty')
-password = 'Hello1234'
-url = 'http://work.agilestar.cn'
-started = time.strftime("%Y-%m-%d", time.localtime())
-time_spend_in_seconds = 8 * 60 * 60
-template = "1"
-path = os.path.dirname(__file__) + '/tdl/'
-date = time.strftime('%-m{}%-d{}', time.strptime(started, "%Y-%m-%d")).format("月", "日")
+
 
 
 def main():
-    global issue_name
+    password = 'Hello1234'
+    url = 'http://work.agilestar.cn'
+    started = time.strftime("%Y-%m-%d", time.localtime())
+    time_spend_in_seconds = 8 * 60 * 60
+    template = "1"
+    path = os.path.dirname(__file__) + '/tdl/'
+    date = time.strftime('%-m{}%-d{}', time.strptime(started, "%Y-%m-%d")).format("月", "日")
     issue_name = '业务工作台-23年优化需求'
 
     put_markdown("""# Jira填报

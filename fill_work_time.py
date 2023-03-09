@@ -4,9 +4,6 @@ import click
 from atlassian import Jira
 from gen_tdl import gen_tdl
 
-started = time.strftime("%Y-%m-%d", time.localtime())
-time_spend_in_seconds = 8 * 60 * 60
-
 
 # 获取jira用户key
 def get_jira_worker(jira, username):
@@ -33,8 +30,8 @@ def get_issue_id(jira, issue_name):
 @click.option('--username', default='username', help='用户名，必填项')
 @click.option('--password', default='Hello1234', help='密码（默认为Hello1234）')
 @click.option('--url', default='http://work.agilestar.cn', help='URL（默认为http://work.agilestar.cn）')
-@click.option('--started', default=started, help='填写时间（默认为当天日期，格式【2023-01-01】）')
-@click.option('--time_spend_in_seconds', default=time_spend_in_seconds, help='工时（单位【秒】，默认为8小时）')
+@click.option('--started', default=time.strftime("%Y-%m-%d", time.localtime()), help='填写时间（默认为当天日期，格式【2023-01-01】）')
+@click.option('--time_spend_in_seconds', default=8 * 60 * 60, help='工时（单位【秒】，默认为8小时）')
 @click.option('--issue_name', default="业务工作台-23年优化需求", help='问题（默认业务工作台-23年优化需求）')
 @click.option('--content', default="市场工作台开发",
               help='工作内容，必填项(支持多条记录，用【1.2.3.】分开，最多支持三条工作内容)')
