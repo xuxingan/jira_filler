@@ -11,7 +11,6 @@ from fill_work_time import fill_tempo_inner
 pywebio.config(title='Jira填报', theme='minty')
 
 
-
 def main():
     password = 'Hello1234'
     url = 'http://work.agilestar.cn'
@@ -25,7 +24,7 @@ def main():
     put_markdown("""# Jira填报
 
     [`Jira`](http://work.agilestar.cn/secure/Dashboard.jspa)填报用于填写Jira的Tempo插件中的每日工作日志，并生成TDL模板用于回填`工作台TDL`腾讯在线文档。
-    基于ChatGPT-3模型生成`每日总结`，预测`明日工作内容`。
+    基于GPT-3.5模型生成`每日总结`，预测`明日工作内容`。
 
     本程序的源代码[链接](https://github.com/xuxingan/jira_filler)
     """)
