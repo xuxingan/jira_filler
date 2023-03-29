@@ -36,7 +36,7 @@ def main():
         input("任务2.", name="content2", type=TEXT),
         input("任务3.", name="content3", type=TEXT),
     ])
-    started = time.strftime("%Y-%m-%d", time.localtime() * 24*60*60 * info['days'])
+    started = time.strftime("%Y-%m-%d", time.localtime(time.time() - 24*60*60 * info['days']))
     date = time.strftime('%-m{}%-d{}', time.strptime(started, "%Y-%m-%d")).format("月", "日")
     username = info['username']
     issue_name_param: object = info['issue_name']
