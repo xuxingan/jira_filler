@@ -14,11 +14,9 @@ pywebio.config(title='Jira填报', theme='minty')
 def main():
     password = 'Hello1234'
     url = 'http://work.agilestar.cn'
-    started = time.strftime("%Y-%m-%d", time.localtime())
     time_spend_in_seconds = 8 * 60 * 60
     template = "1"
     path = os.path.dirname(__file__) + '/tdl/'
-    date = time.strftime('%-m{}%-d{}', time.strptime(started, "%Y-%m-%d")).format("月", "日")
     issue_name = '业务工作台-23年优化需求'
 
     put_markdown("""# Jira填报
@@ -32,10 +30,14 @@ def main():
     info = input_group('今日的工作重点：', [
         input("用户名", name="username", type=TEXT),
         input("项目名称", name="issue_name", type=TEXT, placeholder='可为空，默认为【业务工作台-23年优化需求】'),
+        slider('填报前n天数据', name="days", value=0, step=1, max_value=7,
+               min_value=0),
         input("任务1.", name="content1", type=TEXT),
         input("任务2.", name="content2", type=TEXT),
         input("任务3.", name="content3", type=TEXT),
     ])
+    started = time.strftime("%Y-%m-%d", time.localtime() * 24*60*60 * info['days'])
+    date = time.strftime('%-m{}%-d{}', time.strptime(started, "%Y-%m-%d")).format("月", "日")
     username = info['username']
     issue_name_param: object = info['issue_name']
     content = ''

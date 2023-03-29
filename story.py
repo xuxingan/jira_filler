@@ -2,7 +2,6 @@ import json
 import random
 
 import openai
-import pywebio
 from pywebio import start_server
 from pywebio.input import *
 from pywebio.output import *
@@ -36,7 +35,7 @@ def gen_story(name, dept, theme, num):
 
 def story():
     put_markdown("""# 你比安徒生都会讲故事
-    基于GPT-3模型生成企业文化小故事
+    基于GPT-3.5模型生成企业文化小故事
     本程序的源代码[链接](https://github.com/xuxingan/jira_filler)
     """)
     img = open('story/andersen.jpg', 'rb').read()
